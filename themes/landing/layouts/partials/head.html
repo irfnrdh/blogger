@@ -1,0 +1,22 @@
+<head>
+    <meta charset=utf-8> 
+    {{ hugo.Generator }}
+    <title>{{ .Title }}</title>
+    
+    {{ "<!-- Mobile Specific Meta -->" | safeHTML }}
+    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+
+    {{ "<!-- SEO Specific Meta -->" | safeHTML }}
+    <meta name=description content="{{ with .Description }}{{ . }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}"> 
+    {{ with .Site.Params.author }}
+    <meta name="author" content="{{ . }}">{{ end }}
+
+    {{ "<!-- Stylesheets -->" | safeHTML }}
+    <link rel=stylesheet href="{{ `plugins/bootstrap/bootstrap.min.css` | absURL }}">
+    <link rel=stylesheet href="{{ `plugins/themefisher-font/themefisher-font.min.css` | absURL }}">
+    <link rel=stylesheet href="{{ `plugins/owl-carousel/owl.carousel.min.css` | absURL }}">
+    <link rel=stylesheet href="{{ `plugins/aos/aos.css` | absURL }}">
+    <link rel=stylesheet href="{{ `css/style.css` | absURL }}" media=screen>
+    <link rel="shortcut icon" href="{{ `}images/favicon.png` | absURL }}" type=image/x-icon>
+    <link rel=icon href="{{ `images/favicon.png` | absURL }}"  type=image/x-icon>
+</head>
